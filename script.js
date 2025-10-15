@@ -29,33 +29,124 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Form validation and submission
-const contactForm = document.getElementById('contact-form');
+// Email button handler (opens mail client with prefilled subject/body)
+// Bind email elements to open the contact modal so user can enter details
+const modal = document.getElementById('contact-modal');
+const modalOverlay = modal ? modal.querySelector('.modal-overlay') : null;
+const modalForm = document.getElementById('contact-modal-form');
+const modalName = document.getElementById('modal-name');
+const modalEmail = document.getElementById('modal-email');
+const modalMessage = document.getElementById('modal-message');
+const modalCancel = document.getElementById('modal-cancel');
 
-contactForm.addEventListener('submit', function(e) {
-    // Let the form submit to Formspree, but still validate
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+function openModalWithTargetEmail(emailCodes) {
+    if (!modal) return;
+    modal.dataset.targetEmail = emailCodes;
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('open');
+    // small timeout to ensure element is focusable
+    setTimeout(() => { if (modalName) modalName.focus(); }, 50);
+}
 
-    // Basic validation
-    if (!name || !email || !message) {
-        e.preventDefault();
-        alert('Please fill in all fields.');
-        return;
+function closeModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    modal.classList.remove('open');
+    modal.dataset.targetEmail = '';
+    if (modalForm) modalForm.reset();
+    // return focus to previously focused element
+    if (modal._trigger) {
+        try { modal._trigger.focus(); } catch (e) {}
+        modal._trigger = null;
     }
+}
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+document.querySelectorAll('[data-email-codes]').forEach(el => {
+    el.addEventListener('click', (e) => {
         e.preventDefault();
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    // Show success message (Formspree will handle the actual submission)
-    alert('Thank you for your message! It will be sent directly to our email.');
+        const codes = el.getAttribute('data-email-codes');
+        // record the trigger so focus can be returned when modal closes
+        if (modal) modal._trigger = el;
+        openModalWithTargetEmail(codes);
+    });
 });
+
+if (modalOverlay) {
+    modalOverlay.addEventListener('click', closeModal);
+}
+
+if (modalCancel) {
+    modalCancel.addEventListener('click', closeModal);
+}
+
+if (modalForm) {
+    modalForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = modalName.value.trim();
+        const email = modalEmail.value.trim();
+        const message = modalMessage.value.trim();
+        const errorEl = document.getElementById('modal-error');
+        errorEl.textContent = '';
+        if (!name || !email || !message) {
+            errorEl.textContent = 'Please fill in all fields.';
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            errorEl.textContent = 'Please enter a valid email address.';
+            modalEmail.focus();
+            return;
+        }
+
+        const targetCodes = modal.dataset.targetEmail;
+        const to = decodeFromCodes(targetCodes);
+        const subject = encodeURIComponent('Contact from ' + name + ' (' + email + ')');
+        const bodyLines = [];
+        bodyLines.push('Name: ' + name);
+        bodyLines.push('Email: ' + email);
+        bodyLines.push('');
+        bodyLines.push('Message:');
+        bodyLines.push(message);
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        closeModal();
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+}
+
+// Keyboard handling: close on Escape and trap focus inside modal
+document.addEventListener('keydown', (e) => {
+    if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+    if (e.key === 'Escape') {
+        closeModal();
+        return;
+    }
+    if (e.key === 'Tab') {
+        // basic focus trap
+        const focusable = modal.querySelectorAll('a[href], button:not([disabled]), textarea, input, select');
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) {
+                last.focus();
+                e.preventDefault();
+            }
+        } else {
+            if (document.activeElement === last) {
+                first.focus();
+                e.preventDefault();
+            }
+        }
+    }
+});
+
+// No phone bindings needed: contact is email-only now
+
+// Helper: decode comma-separated char codes into string
+function decodeFromCodes(csv) {
+    if (!csv) return '';
+    return csv.split(',').map(c => String.fromCharCode(parseInt(c, 10))).join('');
+}
 
 // Intersection Observer for animations
 const observerOptions = {

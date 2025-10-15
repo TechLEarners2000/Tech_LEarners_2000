@@ -153,8 +153,8 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **Tech L(E)arner**
-- Email: hello@techlearner.dev
-- Website: [Your GitHub Pages URL]
+- Email: techl.earners.offl@gmail.com
+- Website: TechLEarners2000
 - LinkedIn: [Your LinkedIn Profile]
 
 ## 🙏 Acknowledgments

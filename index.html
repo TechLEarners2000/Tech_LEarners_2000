@@ -11,12 +11,13 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="logo.png" alt="Tech L(E)arner Logo" width="40" height="40">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" alt="Tech L(E)arner Logo" width="40" height="40">
                 <span>Tech L(E)arner</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -31,10 +32,12 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Welcome to Tech L(E)arner</h1>
-                <p>Your partner in innovative web solutions and digital transformation.</p>
-                <a href="#contact" class="cta-button">Get Started</a>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Welcome to Tech L(E)arner</h1>
+                    <p>Empowering your digital journey with cutting-edge web development solutions. We create responsive, modern websites that drive results.</p>
+                    <a href="#services" class="cta-button">Get Started</a>
+                </div>
             </div>
         </section>
 
@@ -43,11 +46,50 @@
                 <h2>About Us</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Tech L(E)arner is a passionate beginner web developer dedicated to creating modern, responsive, and user-friendly websites. Our journey in tech is driven by continuous learning and innovation.</p>
-                        <p>We specialize in turning ideas into digital realities, focusing on clean code, intuitive design, and exceptional user experiences.</p>
+                        <p>Tech L(E)arner is a passionate team of web developers dedicated to crafting exceptional digital experiences. We specialize in modern web technologies and user-centered design.</p>
+                        <p>Our mission is to help businesses establish a strong online presence through innovative, responsive, and accessible websites that engage visitors and drive conversions.</p>
+                        <p>With expertise in HTML, CSS, JavaScript, and emerging frameworks, we bring your vision to life with clean code and cutting-edge solutions.</p>
                     </div>
                     <div class="about-image">
-                        <img src="https://via.placeholder.com/400x300/4a90e2/ffffff?text=Tech+L(E)arner" alt="Tech L(E)arner workspace">
+                        <img src="Title.png" alt="Tech L(E)arner Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Our Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">💻</div>
+                        <h3>Frontend Development</h3>
+                        <p>HTML5, CSS3, JavaScript, React, Vue.js</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Figma, Adobe XD, User Research, Prototyping</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">⚡</div>
+                        <h3>Performance Optimization</h3>
+                        <p>SEO, Core Web Vitals, Fast Loading</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">📱</div>
+                        <h3>Responsive Design</h3>
+                        <p>Mobile-first, Cross-browser Compatibility</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔧</div>
+                        <h3>Backend Integration</h3>
+                        <p>Node.js, APIs, Database Management</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🚀</div>
+                        <h3>Deployment</h3>
+                        <p>GitHub Pages, Netlify, Vercel, AWS</p>
                     </div>
                 </div>
             </div>
@@ -58,14 +100,17 @@
                 <h2>Our Services</h2>
                 <div class="services-grid">
                     <div class="service-card">
+                        <div class="service-icon">🌐</div>
                         <h3>Web Development</h3>
                         <p>Custom websites built with HTML, CSS, and JavaScript. Responsive design ensuring great user experience across all devices.</p>
                     </div>
                     <div class="service-card">
+                        <div class="service-icon">🎯</div>
                         <h3>UI/UX Design</h3>
                         <p>Intuitive and modern user interfaces that engage visitors and drive conversions.</p>
                     </div>
                     <div class="service-card">
+                        <div class="service-icon">💡</div>
                         <h3>Consultation</h3>
                         <p>Expert advice on web technologies, best practices, and digital strategy for your business.</p>
                     </div>
@@ -73,74 +118,110 @@
             </div>
         </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2>Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Portfolio Website</h3>
-                        <p>A responsive single-page portfolio showcasing modern web development skills.</p>
-                        <a href="#" class="project-link">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <h3>E-commerce Platform</h3>
-                        <p>Full-featured online store with shopping cart and payment integration.</p>
-                        <a href="#" class="project-link">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <h3>Blog CMS</h3>
-                        <p>Custom content management system for personal and business blogging.</p>
-                        <a href="#" class="project-link">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <h3>Mobile App Landing Page</h3>
-                        <p>Conversion-optimized landing page for mobile application promotion.</p>
-                        <a href="#" class="project-link">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="projects" class="panel container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Routine Tracker</h3>
+                    <p>Planner app for daily tasks and habits. React + localStorage; offline-friendly UX.</p>
+                    <div class="tech">React • localStorage • CSS</div>
+                    <div class="links"><a href="https://routine-tracker-pro-phi.vercel.app/" target="_blank" rel="noopener">Live</a></div>
+                </article>
 
-        <section id="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <p>Ready to start your next project? Let's discuss how we can bring your ideas to life.</p>
-                        <div class="contact-details">
-                            <p><strong>Email:</strong> geryanton263@gmail.com</p>
-                            <p><strong>Phone:</strong> 9361310717</p>
-                            <p><strong>Location:</strong> Remote / Worldwide</p>
-                        </div>
-                    </div>
-                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xpznqkgj" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Send Message</button>
-                    </form>
-                </div>
+                <article class="project-card">
+                    <h3>PocketWise Companion</h3>
+                    <p>Simple expense tracker with clean UI and quick summaries.</p>
+                    <div class="tech">JavaScript • Local state • Responsive UI</div>
+                    <div class="links"><a href="https://pocketwise-companion.vercel.app/" target="_blank" rel="noopener">Live</a></div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Habit Chain Together</h3>
+                    <p>Habit-building app focused on streaks and social sharing of progress.</p>
+                    <div class="tech">JavaScript • UX</div>
+                    <div class="links"><a href="https://habit-chain-together.vercel.app/" target="_blank" rel="noopener">Live</a></div>
+                </article>
+
+                <article class="project-card">
+                    <h3>EcoQuest</h3>
+                    <p>Educational microgames teaching environmental topics. Built with vanilla JS.</p>
+                    <div class="tech">HTML • CSS • JavaScript</div>
+                    <div class="links"><a href="https://ecoquest-ten.vercel.app/" target="_blank" rel="noopener">Live</a></div>
+                </article>
+
+                <article class="project-card">
+                    <h3>AR Eco Missions</h3>
+                    <p>Experimental AR learning experience combining visual overlays and activities.</p>
+                    <div class="tech">AR • WebXR</div>
+                    <div class="links"><a href="https://ar-eco-missions.lovable.app/" target="_blank" rel="noopener">Live</a></div>
+                </article>
+
+                <article class="project-card">
+                    <h3>Calculator Pro</h3>
+                    <p>Multi-mode calculator: standard, scientific and programmer modes with keyboard support.</p>
+                    <div class="tech">JavaScript • Responsive</div>
+                    <div class="links"><a href="https://calculatorpro-eight.vercel.app/" target="_blank" rel="noopener">Live</a></div>
+                </article>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Tech L(E)arner. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" aria-label="GitHub">GitHub</a>
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                <a href="#" aria-label="Twitter">Twitter</a>
+        <div class="container footer-grid">
+            <div class="footer-left">
+                <p>&copy; 2024 Tech L(E)arner. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/TechLEarners2000" aria-label="GitHub" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://instagram.com/techl_earners2000" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div id="footer" class="footer-contact">
+                <h4>Contact</h4>
+                <div class="actions footer-actions">
+                    <div class="contact-btn">
+                        <button id="email-button-footer" class="cta-button primary" data-email-codes="116,101,99,104,108,46,101,97,114,110,101,114,115,46,111,102,102,108,64,103,109,97,105,108,46,99,111,109" aria-label="Email main contact" data-tooltip="Main contact — opens mail dialog">Email</button>
+                        <span class="badge">Main</span>
+                    </div>
+                    <div class="contact-btn">
+                        <button id="email-officer-footer" class="cta-button" data-email-codes="97,114,105,115,104,101,120,105,109,48,49,49,64,103,109,97,105,108,46,99,111,109" aria-label="Email officer 1" data-tooltip="Officer contact — opens mail dialog">Officer</button>
+                        <span class="badge secondary">Officer</span>
+                    </div>
+                    <div class="contact-btn">
+                        <button id="email-officer2-footer" class="cta-button" data-email-codes="103,101,114,121,97,110,116,111,110,50,54,51,64,103,109,97,105,108,46,99,111,109" aria-label="Email officer 2" data-tooltip="Officer contact — opens mail dialog">Officer</button>
+                        <span class="badge secondary">Officer</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact modal moved here -->
+            <div id="contact-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="contact-modal-title">
+                <div class="modal-overlay" tabindex="-1"></div>
+                <div class="modal-panel">
+                    <h3 id="contact-modal-title">Contact</h3>
+                    <form id="contact-modal-form">
+                        <label for="modal-name">Name</label>
+                        <input id="modal-name" name="name" type="text" required>
+                        <label for="modal-email">Your email</label>
+                        <input id="modal-email" name="email" type="email" required>
+                        <label for="modal-message">Message</label>
+                        <textarea id="modal-message" name="message" required></textarea>
+                        <div id="modal-error" class="modal-error" role="alert" aria-live="assertive"></div>
+                        <div class="modal-actions">
+                            <button type="button" id="modal-cancel" class="btn-secondary">Cancel</button>
+                            <button type="submit" id="modal-send" class="btn-primary">Open Mail</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </footer>
